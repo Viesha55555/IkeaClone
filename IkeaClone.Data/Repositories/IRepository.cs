@@ -1,4 +1,4 @@
-﻿namespace IkeaClone.Data;
+﻿namespace IkeaClone.Repository.Repositories;
 
 public interface IRepository<T> where T : IAggregateRoot
 {

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IkeaClone.Data\IkeaClone.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

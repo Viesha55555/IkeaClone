@@ -1,6 +1,8 @@
-﻿namespace IkeaClone.Models;
+﻿using IkeaClone.Repository.Repositories;
 
-public class Order
+namespace IkeaClone.Models;
+
+public class Order : IAggregateRoot
 {
     public int Id { get; set; }
     public List<IProduct> Products { get; set; }

@@ -20,7 +20,7 @@ namespace IkeaClone.Controllers
         [HttpGet(Name = "GetOrder")]
         public async Task<ActionResult<ReadOrderDto>> Get()
         {
-            var order = await _readOrderService.GetOrderAsync("changehardcoed");
+            var order = await _readOrderService.GetOrderAsync(1); //change from hardcoded
             return Ok(order);
         }
     }

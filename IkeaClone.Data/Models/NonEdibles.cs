@@ -2,6 +2,6 @@
 {
     public abstract class NonEdibles
     {
-        public string ItemNumber { get; set; }
+        public int ItemNumber { get; set; }
     }
 }

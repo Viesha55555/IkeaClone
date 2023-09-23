@@ -4,5 +4,5 @@ namespace IkeaClone.Services;
 
 public interface IReadOrderService
 {
-    public Task<ReadOrderDto> GetOrderAsync(string orderId);
+    public Task<ReadOrderDto> GetOrderAsync(int orderId);
 }
