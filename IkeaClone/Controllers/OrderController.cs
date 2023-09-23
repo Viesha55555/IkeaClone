@@ -1,4 +1,5 @@
-using IkeaClone.Models;
+using IkeaClone.Services;
+using IkeaClone.Services.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IkeaClone.Controllers
@@ -8,16 +9,18 @@ namespace IkeaClone.Controllers
     public class OrderController : ControllerBase
     {
         private readonly ILogger<OrderController> _logger;
+        private readonly IReadOrderService _readOrderService;
 
-        public OrderController(ILogger<OrderController> logger)
+        public OrderController(ILogger<OrderController> logger, IReadOrderService readOrderService)
         {
             _logger = logger;
+            _readOrderService = readOrderService;
         }
 
         [HttpGet(Name = "GetOrder")]
-        public ActionResult<Order> Get()
+        public async Task<ActionResult<ReadOrderDto>> Get()
         {
-            var order = new Order();
+            var order = await _readOrderService.GetOrderAsync("changehardcoed");
             return Ok(order);
         }
     }
