@@ -1,6 +1,5 @@
 ﻿using IkeaClone.Models;
 using IkeaClone.Repository.Entities;
-using IkeaClone.Repository.Models;
 
 namespace IkeaClone.Repository.Repositories;
 
@@ -45,8 +44,8 @@ public class OrderRepository : IOrderRepository
         return orders.FirstOrDefault(o => o.Id == id);
     }
 
-    public IList<Order> GetAll()
+    public async Task<IList<Order>> GetAll()
     {
-        throw new NotImplementedException();
+        return orders;
     }
 }

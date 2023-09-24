@@ -1,5 +1,4 @@
-﻿using IkeaClone.Models;
-using IkeaClone.Repository.Models;
+﻿using IkeaClone.Repository.Models;
 
 namespace IkeaClone.Repository.Repositories;
 
@@ -53,7 +52,7 @@ public class TextileRepository : ITextileRepository
         return textiles.FirstOrDefault(o => o.ItemNumber == id);
     }
 
-    public IList<Textile> GetAll()
+    public async Task<IList<Textile>> GetAll()
     {
         return textiles;
     }
