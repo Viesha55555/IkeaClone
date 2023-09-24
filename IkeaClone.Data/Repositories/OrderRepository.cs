@@ -32,7 +32,32 @@ public class OrderRepository : IOrderRepository
                 }
             }
         },
-    
+        new Order()
+        {
+            Id = 2,
+            CustomerId = 5,
+            OrderItems = new List<OrderItem>
+            {
+                new OrderItem()
+                {
+                    OrderItemType = OrderItemType.Furniture,
+                    Amount = 2,
+                    OrderItemNumber = 3
+                },
+                new OrderItem()
+                {
+                    OrderItemType = OrderItemType.Textile,
+                    Amount = 2,
+                    OrderItemNumber = 26
+                },
+                new OrderItem()
+                {
+                    OrderItemType = OrderItemType.HotDogs,
+                    Amount = 2,
+                    FlavorIdentifier = "Chili"
+                }
+            }
+        }
     };
     public void Add(Order item)
     {

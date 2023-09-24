@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using IkeaClone.Models;
 using IkeaClone.Repository.Entities;
-using IkeaClone.Repository.Models;
 using IkeaClone.Repository.Repositories;
 using IkeaClone.Services.Dtos;
 
@@ -11,14 +9,17 @@ public class ReadOrderService : IReadOrderService
 {
     protected readonly IOrderRepository _orderRepository;
     protected readonly IReadOrderItemsService _readOrderItemsService;
+    protected readonly IDiscountService _discountService;
     protected readonly IMapper _mapper;
 
     public ReadOrderService(IOrderRepository orderRepository,
         IReadOrderItemsService readOrderItemsService,
+        IDiscountService discountService,
         IMapper mapper)
     {
         _orderRepository = orderRepository;
         _readOrderItemsService = readOrderItemsService;
+        _discountService = discountService;
         _mapper = mapper;
     }
     public async Task<ReadOrderDto> GetOrderAsync(int orderId)
@@ -36,7 +37,7 @@ public class ReadOrderService : IReadOrderService
                 if (furnitureById != null)
                 {
                     var mappedProducts = _mapper.Map<OrderItemDto>(furnitureById);
-                    if(mappedProducts != null)
+                    if (mappedProducts != null)
                         orderItemDtos.Add(mappedProducts);
                 }
             }
@@ -72,14 +73,16 @@ public class ReadOrderService : IReadOrderService
             }
         }
 
-        //mapper here to map products and list of available discounts
+        //Get discounts based on customer ID
+        var appliedDiscounts = await _discountService.GetCustomerDiscounts(orderById.CustomerId);
+
         var returnDto = new ReadOrderDto()
         {
             OrderId = orderId,
             Products = orderItemDtos,
-            AppliedDiscounts = new List<string>() 
+            AppliedDiscounts = appliedDiscounts ?? new List<string>()
         };
-        
+
         return returnDto;
     }
 }

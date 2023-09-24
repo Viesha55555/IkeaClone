@@ -1,6 +1,6 @@
 ﻿namespace IkeaClone.Repository.Models
 {
-    public abstract class NonEdibles
+    public abstract class Relational
     {
         public int ItemNumber { get; set; }
     }

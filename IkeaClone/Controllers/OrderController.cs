@@ -24,7 +24,7 @@ namespace IkeaClone.Controllers
         [HttpGet("{id}/orders", Name = "GetOrder")]
         public async Task<ActionResult<ReadOrderDto>> Get(int id)
         {
-            var order = await _readOrderService.GetOrderAsync(id); //change from hardcoded
+            var order = await _readOrderService.GetOrderAsync(id);
             return Ok(order);
         }
 
@@ -32,7 +32,7 @@ namespace IkeaClone.Controllers
         public async Task<ActionResult<ReadOrderDto>> Post([FromBody]WriteOrderDto writeOrderDto)
         {
             var createdOrder = await _writeOrderService.CreateOrderAsync(writeOrderDto);
-            return Created("GetOrder", createdOrder);
+            return Created("{id}/orders", createdOrder.OrderId);
         }
     }
 }

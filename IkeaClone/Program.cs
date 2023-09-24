@@ -16,11 +16,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IReadOrderService, ReadOrderService>();
 builder.Services.AddScoped<IWriteOrderService, WriteOrderService>();
 builder.Services.AddScoped<IReadOrderItemsService, ReadOrderItemsService>();
+builder.Services.AddScoped<IDiscountService, DiscountService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IFurnitureRepository, FurnitureRepository>();
 builder.Services.AddScoped<ITextileRepository, TextileRepository>();
 builder.Services.AddScoped<IHotDogRepository, HotDogRepository>();
-
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 //Configure Automapper
 var mapperConfig = new MapperConfiguration(mc => mc.AddMaps(Assembly.GetAssembly(typeof(OrderItemDto))));

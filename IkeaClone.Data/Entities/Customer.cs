@@ -1,6 +1,8 @@
-﻿namespace IkeaClone.Models;
+﻿using IkeaClone.Repository.Repositories;
 
-public class Customer
+namespace IkeaClone.Models;
+
+public class Customer : IAggregateRoot
 {
     public int Id { get; set; }
     public string Name { get; set; }
