@@ -1,5 +1,4 @@
-﻿using IkeaClone.Models;
-using IkeaClone.Repository.Models;
+﻿using IkeaClone.Repository.Models;
 
 namespace IkeaClone.Repository.Repositories;
 
@@ -39,7 +38,7 @@ public class FurnitureRepository : IFurnitureRepository
         return furniture.FirstOrDefault(o => o.ItemNumber == id);
     }
 
-    public IList<Furniture> GetAll()
+    public async Task<IList<Furniture>> GetAll()
     {
         return furniture;
     }

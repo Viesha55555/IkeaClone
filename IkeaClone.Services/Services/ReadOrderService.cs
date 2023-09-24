@@ -72,8 +72,6 @@ public class ReadOrderService : IReadOrderService
             }
         }
 
-        //var mappedProducts = _mapper.Map<IProduct>(productsInOrder);
-        //call to user repo to see what discounts are for this user and return
         //mapper here to map products and list of available discounts
         var returnDto = new ReadOrderDto()
         {

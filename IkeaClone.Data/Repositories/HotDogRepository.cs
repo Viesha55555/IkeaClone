@@ -47,7 +47,7 @@ public class HotDogRepository : IHotDogRepository
         return hotDogs.FirstOrDefault(o => o.Flavor == flavor);
     }
 
-    public IList<HotDog> GetAll()
+    public async Task<IList<HotDog>> GetAll()
     {
         return hotDogs;
     }

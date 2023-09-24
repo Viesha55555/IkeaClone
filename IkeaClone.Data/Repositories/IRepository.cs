@@ -16,5 +16,5 @@ public interface IRepository<T> where T : IAggregateRoot
     /// <param name="item">
     /// The item.
     /// </param>
-    IList<T> GetAll();
+    Task<IList<T>> GetAll();
 }
