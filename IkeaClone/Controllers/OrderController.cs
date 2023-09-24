@@ -1,5 +1,5 @@
-using IkeaClone.Services;
 using IkeaClone.Services.Dtos;
+using IkeaClone.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IkeaClone.Controllers

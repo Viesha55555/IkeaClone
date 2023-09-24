@@ -1,4 +1,5 @@
 ﻿using IkeaClone.Models;
+using IkeaClone.Repository.Entities;
 using IkeaClone.Repository.Models;
 
 namespace IkeaClone.Repository.Repositories;
@@ -10,21 +11,25 @@ public class OrderRepository : IOrderRepository
         {
             Id = 1,
             CustomerId = 1,
-            Products = new List<IProduct>
+            OrderItems = new List<OrderItem>
             {
-                new Furniture()
+                new OrderItem()
                 {
-                    ItemNumber = 1,
-                    Description = "Sofa",
-                    Price = 20,
-                    Weight = 50
+                    OrderItemType = OrderItemType.Furniture,
+                    Amount = 2,
+                    OrderItemNumber = 1
                 },
-                new Textile()
+                new OrderItem()
                 {
-                    ItemNumber = 25,
-                    Description = "Nice textile",
-                    Price = 50,
-                    Color = "Red"
+                    OrderItemType = OrderItemType.Textile,
+                    Amount = 2,
+                    OrderItemNumber = 26
+                },
+                new OrderItem()
+                {
+                    OrderItemType = OrderItemType.HotDogs,
+                    Amount = 2,
+                    FlavorIdentifier = "Kabanos"
                 }
             }
         },
@@ -37,14 +42,10 @@ public class OrderRepository : IOrderRepository
 
     public async Task<Order> FindById(int id)
     {
-        //await Task.Run(() => {
-        //    var orderById = orders.FirstOrDefault(o => o.Id == id);
-        //});
-        //orders.FirstOrDefault(o => o.Id == id);
         return orders.FirstOrDefault(o => o.Id == id);
     }
 
-    public void Read(Order item)
+    public IList<Order> GetAll()
     {
         throw new NotImplementedException();
     }

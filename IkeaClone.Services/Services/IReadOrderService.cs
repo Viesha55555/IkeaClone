@@ -1,6 +1,6 @@
 ﻿using IkeaClone.Services.Dtos;
 
-namespace IkeaClone.Services;
+namespace IkeaClone.Services.Services;
 
 public interface IReadOrderService
 {

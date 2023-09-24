@@ -1,5 +1,5 @@
 using IkeaClone.Repository.Repositories;
-using IkeaClone.Services;
+using IkeaClone.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

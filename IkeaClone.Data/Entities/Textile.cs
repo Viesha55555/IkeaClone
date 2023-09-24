@@ -1,8 +1,9 @@
 ﻿using IkeaClone.Models;
+using IkeaClone.Repository.Repositories;
 
 namespace IkeaClone.Repository.Models
 {
-    internal class Textile : NonEdibles, IProduct
+    public class Textile : NonEdibles, IProduct, IAggregateRoot
     {
         public decimal Price { get; set; }
         public string Description { get; set; }

@@ -11,10 +11,10 @@ public interface IRepository<T> where T : IAggregateRoot
     void Add(T item);
 
     /// <summary>
-    /// Reads the item.
+    /// Gets all items.
     /// </summary>
     /// <param name="item">
     /// The item.
     /// </param>
-    void Read(T item);
+    IList<T> GetAll();
 }
