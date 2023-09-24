@@ -34,7 +34,7 @@ public class FurnitureRepository : IFurnitureRepository
         throw new NotImplementedException();
     }
 
-    public async Task<Furniture> FindByItemNumber(int id)
+    public async Task<Furniture> FindByItemNumber(int? id)
     {
         return furniture.FirstOrDefault(o => o.ItemNumber == id);
     }

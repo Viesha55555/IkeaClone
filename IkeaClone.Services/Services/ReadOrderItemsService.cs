@@ -17,12 +17,12 @@ public class ReadOrderItemsService : IReadOrderItemsService
         _textileRepository = textileRepository;
         _hotdogRepository = hotDogRepository;
     }
-    public async Task<Furniture> GetFurnitureByItemNumber(int itemNumber)
+    public async Task<Furniture> GetFurnitureByItemNumber(int? itemNumber)
     {
         return await _furnitureRepository.FindByItemNumber(itemNumber);
     }
 
-    public async Task<Textile> GetTextileByItemNumber(int itemNumber)
+    public async Task<Textile> GetTextileByItemNumber(int? itemNumber)
     {
         return await _textileRepository.FindByItemNumber(itemNumber);
     }

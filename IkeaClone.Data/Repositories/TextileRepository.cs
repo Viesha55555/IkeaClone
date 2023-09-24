@@ -48,7 +48,7 @@ public class TextileRepository : ITextileRepository
         throw new NotImplementedException();
     }
 
-    public async Task<Textile> FindByItemNumber(int id)
+    public async Task<Textile> FindByItemNumber(int? id)
     {
         return textiles.FirstOrDefault(o => o.ItemNumber == id);
     }
